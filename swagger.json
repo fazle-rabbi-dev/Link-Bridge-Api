@@ -1,0 +1,60 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "API Documentation",
+    "description": "REST api for linktree application (LinkBridge).",
+    "version": "1.0.0"
+  },
+  "basePath": "/api",
+  "paths": {
+    "/users/register": {
+      "post": {
+        "summary": "Signup",
+        "description": "Registers a new user with the system",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "formData",
+            "description": "Name of the user to be registered",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "username",
+            "in": "formData",
+            "description": "Username of the user to be registered",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "formData",
+            "description": "Email address of the user to be registered",
+            "required": true,
+            "type": "string",
+            "format": "email"
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "description": "Password of the user to be registered",
+            "required": true,
+            "type": "string",
+            "format": "password"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "User successfully registered"
+          },
+          "400": {
+            "description": "Bad request - Invalid input data"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    }
+  }
+}
