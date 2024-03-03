@@ -1,6 +1,9 @@
+import dotenv from "dotenv/config";
 import mongoose from "mongoose";
 import chalk from "chalk";
 import { DB_NAME } from "../utils/constants.js";
+
+console.log(process.env)
 
 const connectDB = async () => {
   try {
