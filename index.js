@@ -1,7 +1,9 @@
+import dotenv from "dotenv/config";
 import app from "./src/app.js";
 import connectDB from "./src/database/db-connect.js";
 import { PORT } from "./src/utils/constants.js";
 import chalk from "chalk";
+
 
 (async () => {
   await connectDB();
