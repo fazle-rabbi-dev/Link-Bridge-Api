@@ -203,10 +203,10 @@ const getLinktreeProfile = async req => {
 // Update Account
 // ==========================================================================================
 const updateAccount = async req => {
-  const { name, bio, username, oldPassword, newPassword, profilePicPublicId, removeProfilePic, title, description } = req.body;
+  const { name, bio, username, oldPassword, newPassword, profilePicPublicId, removeProfilePic, title, description, avatarUrl, avatarId } = req.body;
   const { userId } = req.params;
   const { updateType } = req.query;
-  const avatar = req.file?.path;
+  // const avatar = req.file?.path;
 
   const supported_types = ["profile", "seo", "username", "changePassword"];
   let newDataToUpdate = {
@@ -248,12 +248,12 @@ const updateAccount = async req => {
 
   // Prepare Usetname to Update
   if (updateType === "username" && !isValidUsername(username)) {
-    throw new CustomError(400, "Invalid username is required.");
+    throw new CustomError(400, "Invalid username.");
   }
 
   if (updateType === "username") {
     newDataToUpdate = {
-      username
+      username: username.toLowerCase()
     };
   }
 
@@ -270,11 +270,22 @@ const updateAccount = async req => {
     };
   }
 
+  
+  /* 
+    The bellow code is no longer in use because 
+    the file upload logic is 
+    now implemented in the frontend. 
+    Since this API is deployed on Cyclic and in Cyclic's free plan, 
+    files can't be uploaded to the server. Therefore, 
+    I wrote the file upload logic in the frontend. 
+  */
+  
   // =====================================================================================================================
   // Handle Profile Pic Change
   // =====================================================================================================================
+  
   // If new profile pic uploaded then delete old profile pic from cloudinary & upload new one!
-  let profilePicUrl = "";
+  /*let profilePicUrl = "";
   let profilePicId = "";
 
   if (updateType === "profile" && avatar) {
@@ -288,12 +299,20 @@ const updateAccount = async req => {
       url: profilePicUrl,
       publicId: profilePicId
     };
+  }*/
+  
+  // When file url comes from backend
+  if (avatarUrl && avatarId) {
+    newDataToUpdate.profilePic = {
+      url: avatarUrl,
+      publicId: avatarId
+    };
   }
 
   if (updateType === "profile" && removeProfilePic.toLowerCase() === "yes") {
     newDataToUpdate.removeProfilePic = true;
   }
-
+  
   const user = await User.updateAccount(req, newDataToUpdate);
   return user;
 };
@@ -336,13 +355,14 @@ const updateLinktreeProfileDesign = async req => {
     throw new CustomError(400, "Background is not valid.");
   }
 
-  let uploadedImgUrl = "";
+  // The bellow code is no longer in use
+  /*let uploadedImgUrl = "";
   let uploadedImgId = "";
   if (type === "background" && bgImage && !data?.background?.color.trim()) {
     const uploadedFile = await uploadOnCloudinary(bgImage);
     uploadedImgUrl = uploadedFile?.secure_url;
     uploadedImgId = uploadedFile?.public_id;
-  }
+  }*/
 
   if (type === "buttonStyle" && !data?.buttonStyle) {
     throw new CustomError(400, "buttonStyle field is required in the request data object.");
@@ -360,10 +380,10 @@ const updateLinktreeProfileDesign = async req => {
     ...data
   };
 
-  if (uploadedImgUrl) {
+  /*if (uploadedImgUrl) {
     design.background.image.url = uploadedImgUrl;
     design.background.image.publicId = uploadedImgId;
-  }
+  }*/
   
   const updatedDoc = await User.updateLinktreeProfileDesign(req.user._id, design, type);
   return updatedDoc;

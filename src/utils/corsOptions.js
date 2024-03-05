@@ -1,6 +1,5 @@
 const corsOptions = {
-  // origin: "*",
-  origin: "https://linkbridge.vercel.app",
+  origin: process.env.CORS_ORIGIN,
   methods: "GET,POST,PATCH,PUT,DELETE",
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true

@@ -2,6 +2,12 @@
 
 Link-Bridge-Api is the RESTful API for the LinkBridge React app, providing seamless connection management and link aggregation functionalities.
 
+**This api is deployed on** <a href="https://cyclic.sh">Cyclic.</a>
+
+## Fun Fact 🤓
+> [!NOTE]
+> I created this project entirely using my **Android Phone** with apps: Acode & Termux.
+
 ## Features
 
 - 🔒 User Authentication: Secure user authentication using JWT tokens.
@@ -10,7 +16,7 @@ Link-Bridge-Api is the RESTful API for the LinkBridge React app, providing seaml
 - 🌐 Social Links Integration: Easily add and manage social media links to your profile.
 - 🔑 Forgot Password: Password recovery functionality for users who forget their passwords.
 
-## Live Demo Of LinkBridge 🎉
+## Live Demo 🎉
 - https://link-bridge.vercel.app
 
 ## Installation
@@ -115,13 +121,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📬 Connect with me
 
-Let's connect! Reach out for collaborations, projects, or just a friendly chat.
+> Let's connect! Reach out for collaborations, projects, or just a friendly chat.
 
-- [LinkedIn](https://linkedin.com/in/fazlerabbidev)
-- [Twitter](https://twitter.com/fazle_rabbi_dev)
-- [Medium](https://medium.com/@fazle-rabbi-dev)
-- [Dev.to](https://dev.to/fazle-rabbi-dev)
-- [Facebook](https://facebook.com/fazlerabbidev)
-- [Instagram](https://instagram.com/fazle_rabbi_dev)
+<a target="_blank" href="https://linkedin.com/in/fazlerabbidev" ><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/linkedin.svg" alt="Fazle Rabbi" height="30" width="auto" /></a>
+<a target="_blank" href="https://twitter.com/fazle_rabbi_dev" ><img align="center" src="https://seeklogo.com/images/T/twitter-x-logo-101C7D2420-seeklogo.com.png?v=638258862800000000" alt="Fazle Rabbi" height="30" width="auto" /></a>
+<a target="_blank" href="https://medium.com/@fazle-rabbi-dev" ><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/medium.svg" alt="Fazle Rabbi" height="30" width="auto" /></a>
+<a target="_blank" href="https://dev.to/fazle-rabbi-dev" ><img align="center" src="https://seeklogo.com/images/D/dev-to-logo-BDC0EFA32F-seeklogo.com.png" alt="Fazle Rabbi" height="30" width="auto" /></a>
+<a target="_blank" href="https://facebook.com/fazlerabbidev" ><img align="center" src="https://seeklogo.com/images/F/facebook-icon-black-logo-133935095E-seeklogo.com.png" alt="Fazle Rabbi" height="30" width="auto" /></a>
+<a target="_blank" href="https://instagram.com/fazle_rabbi_dev" ><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/instagram.svg" alt="Fazle Rabbi" height="30" width="auto" /></a>
 
-Feel free to explore, contribute, and get inspired!
+*Feel free to explore, contribute, and get inspired!*
+

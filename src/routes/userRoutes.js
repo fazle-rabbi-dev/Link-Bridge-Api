@@ -60,7 +60,8 @@ router.patch("/reset-password", resetPassword);
 // =====================================================================================================================
 router.get("/:userId", authMiddleware, getUserById);
 router.get("/linktree-profile/:username", getLinktreeProfile);
-router.patch("/:userId", authMiddleware, upload.single("avatar"), updateAccount);
+// router.patch("/:userId", authMiddleware, upload.single("avatar"), updateAccount);
+router.patch("/:userId", authMiddleware, updateAccount);
 router.patch("/update/linktree-profile", authMiddleware, upload.single("file"), updateLinktreeProfileDesign);
 
 export default router;

@@ -356,12 +356,12 @@ const updateAccount = async (req, data) => {
     };
   }
 
-  // Handle Profile Pic Change
-  if (req.file || data.removeProfilePic) {
+  // Delete old profile pic from cloudinary
+  /*if (req.file || data.removeProfilePic) {
     if (user.profilePic.publicId) {
       await deleteFromCloudinary(user.profilePic.publicId);
     }
-  }
+  }*/
 
   if (data.removeProfilePic) {
     data.profilePic = {
@@ -393,13 +393,16 @@ const updateLinktreeProfileDesign = async (userId, newData, type) => {
 
   const userObject = user.toObject();
   let designToUpdate = {};
-
+  
+  
+  // The bellow code is no longer in use
   /*
     When user set theme
     or When user upload new background image
     then delete old image
   */
-  if (type === "theme" || (type === "background" && (newData.background.image.url || newData.background.color))) {
+  /*if (type === "theme" || (type === "background" && (newData.background.image.url || newData.background.color))) {
+    console.log("Executed")
     // New file uploaded or theme changed. So, delete old file
     const deleted = await deleteFromCloudinary(userObject.design.background.image.publicId);
 
@@ -407,7 +410,7 @@ const updateLinktreeProfileDesign = async (userId, newData, type) => {
       url: "",
       publicId: ""
     };
-  }
+  }*/
 
   switch (type) {
     case "buttonStyle":
@@ -423,14 +426,24 @@ const updateLinktreeProfileDesign = async (userId, newData, type) => {
     default:
       designToUpdate = newData.socialPosition;
   }
-
-  if (newData.background) {
+  
+  
+  // Old Code
+  /*if (newData.background) {
     user.design.theme = "";
   }
   if (newData.theme) {
     user.design.background = { url: "", publicId: "" };
+  }*/
+  
+  // Updated Code
+  if(newData.background?.color.trim()){
+    user.design.theme = ""
   }
-
+  if(newData.theme){
+    user.design.background.color = ""
+  }
+  
   user.design[type] = designToUpdate;
   const res = await user.save();
 

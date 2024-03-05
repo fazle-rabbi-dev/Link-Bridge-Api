@@ -17,7 +17,7 @@ export function validateDocumentId(inputId) {
 // Username validator
 export function isValidUsername(username) {
   var regex = /^[a-z](?!.*--)(?!.*-$)[a-z0-9-]*[a-z0-9]$/;
-  return regex.test(username);
+  return regex.test(username.toLowerCase());
 }
 
 // Random string
