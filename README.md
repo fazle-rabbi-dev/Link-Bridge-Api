@@ -2,7 +2,7 @@
 
 Link-Bridge-Api is the RESTful API for the LinkBridge React app, providing seamless connection management and link aggregation functionalities.
 
-**This api is deployed on** <a href="https://cyclic.sh">Cyclic.</a>
+**This api is deployed on** Vercel
 
 ## Fun Fact 🤓
 > [!NOTE]
@@ -16,8 +16,8 @@ Link-Bridge-Api is the RESTful API for the LinkBridge React app, providing seaml
 - 🌐 Social Links Integration: Easily add and manage social media links to your profile.
 - 🔑 Forgot Password: Password recovery functionality for users who forget their passwords.
 
-## Live Demo 🎉
-- https://link-bridge.vercel.app
+## Live Demo Of Link-Bridge App 🎉
+- https://linkbridge.vercel.app
 
 ## Installation
 
@@ -53,6 +53,8 @@ Link-Bridge-Api is the RESTful API for the LinkBridge React app, providing seaml
     
     GMAIL_USERNAME=
     GMAIL_PASSWORD=<Write your app password, which you can obtain by enabling two-factor authentication in your Gmail account.>
+    
+    CORS_ORIGIN=*
 
    ```
 
